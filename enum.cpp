@@ -1,34 +1,35 @@
 #include <iostream>
 #include <string>
 
-enum japan {
-	toyota,
-	nissan,
-	mitsubishi,
-	subaru,
-	mazda,
-	suzuki,
-	isuzu,
-	datsun,
-};
-enum europe {
-	mercedes,
-	bmw,
-	volkswagen,
-	audi,
-	porsche,
-	opel,
-	lotus,
-	mclaren,
-	alfaromeo,
-	astonmartin,
-};
+
 
 class cars {
 public:
 	cars() {
-		
+
 	}
+	enum japan {
+		toyota,
+		nissan,
+		mitsubishi,
+		subaru,
+		mazda,
+		suzuki,
+		isuzu,
+		datsun,
+	};
+	enum europe {
+		mercedes,
+		bmw,
+		volkswagen,
+		audi,
+		porsche,
+		opel,
+		lotus,
+		mclaren,
+		alfaromeo,
+		astonmartin,
+	};
 	std::string convert_j_str(japan i) {
 
 		switch (i)
@@ -81,7 +82,7 @@ public:
 			return "error";
 		}
 	}
-	int convert_e_enum(std::string s) {
+	europe convert_e_enum(std::string s) {
 		if (s == "mercedes")
 		{
 			return mercedes;
@@ -114,19 +115,19 @@ public:
 		{
 			return mclaren;
 		}
-		else if (s == "mclaren")
+		else if (s == "alfaromeo")
 		{
-			return mclaren;
+			return alfaromeo;
 		}
-		else if (s == "mclaren")
+		else if (s == "astonmartin")
 		{
-			return mclaren;
+			return astonmartin;
 		}
 		else {
-			return -1;
+			abort();
 		}
 	}
-	int convert_j_enum(std::string s) {
+	japan convert_j_enum(std::string s) {
 		if (s == "toyota")
 		{
 			return toyota;
@@ -151,16 +152,16 @@ public:
 		{
 			return suzuki;
 		}
-		else if (s == "alfaromeo")
+		else if (s == "isuzu")
 		{
-			return alfaromeo;
+			return isuzu;
 		}
-		else if (s == "astonmartin")
+		else if (s == "datsun")
 		{
-			return astonmartin;
+			return datsun;
 		}
 		else {
-			return -1;
+			abort();
 		}
 	}
 
@@ -170,8 +171,8 @@ public:
 
 int main() {
 	cars car;
-	std::cout << car.convert_e_str(lotus) << std::endl;
+	std::cout << car.convert_e_str(cars::lotus) << std::endl;
 	std::cout << car.convert_e_enum("lotus") << std::endl;
-	std::cout << car.convert_j_str(mazda) << std::endl;
+	std::cout << car.convert_j_str(cars::mazda) << std::endl;
 	std::cout << car.convert_j_enum("mazda") << std::endl;
 }
