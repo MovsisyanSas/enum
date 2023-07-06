@@ -30,7 +30,7 @@ public:
 		alfaromeo,
 		astonmartin,
 	};
-	std::string convert_j_str(japan i) {
+	static std::string convert_j_str(japan i) {
 
 		switch (i)
 		{
@@ -54,7 +54,7 @@ public:
 			return "error";
 		}
 	}
-	std::string convert_e_str(europe i) {
+	static std::string convert_e_str(europe i) {
 
 		switch (i)
 		{
@@ -82,7 +82,7 @@ public:
 			return "error";
 		}
 	}
-	europe convert_e_enum(std::string s) {
+	static europe convert_e_enum(std::string s) {
 		if (s == "mercedes")
 		{
 			return mercedes;
@@ -127,7 +127,7 @@ public:
 			abort();
 		}
 	}
-	japan convert_j_enum(std::string s) {
+	static japan convert_j_enum(std::string s) {
 		if (s == "toyota")
 		{
 			return toyota;
@@ -170,9 +170,8 @@ public:
 };
 
 int main() {
-	cars car;
-	std::cout << car.convert_e_str(cars::lotus) << std::endl;
-	std::cout << car.convert_e_enum("lotus") << std::endl;
-	std::cout << car.convert_j_str(cars::mazda) << std::endl;
-	std::cout << car.convert_j_enum("mazda") << std::endl;
+	std::cout << cars::convert_e_str(cars::lotus) << std::endl;
+	std::cout << cars::convert_e_enum("lotus") << std::endl;
+	std::cout << cars::convert_j_str(cars::mazda) << std::endl;
+	std::cout << cars::convert_j_enum("mazda") << std::endl;
 }
